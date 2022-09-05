@@ -1,0 +1,23 @@
+%display_bordaR{
+    display: block;
+    border-radius: 5px;
+}
+%displayGrid{
+    padding: 50px 0;
+    display: grid;
+    gap: 20px;
+}
+%displayFlex_center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+%displayFlex_colorBlack{
+    display: flex;
+    font-family: Arial Black, Arial, Helvetica, sans-serif;
+    gap: 25px;
+}
+%top_E_left_0{
+    top: 0;
+    left: 0;
+}

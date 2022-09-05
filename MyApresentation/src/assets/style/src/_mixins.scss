@@ -1,0 +1,25 @@
+@mixin margin_L_R($left,$right) {
+    margin-left: $left;
+    margin-right: $right;
+}
+
+@mixin margin_T_B($top,$bottom) {
+    margin-top: $top;
+    margin-bottom: $bottom;
+}
+@mixin estilizarTexto($color,$font) {
+    color: $color;
+    font-size: $font;
+}
+@mixin animacao($translateX) {
+    transition: all .5s;
+    transform: translateX($translateX);
+}
+@mixin altura_largura($altura,$largura){
+    height: $altura;
+    width: $largura;
+}
+@mixin fundo_padding($cor,$medida){
+    background-color: $cor;
+    padding: $medida;
+}

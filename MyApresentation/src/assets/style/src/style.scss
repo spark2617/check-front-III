@@ -1,0 +1,161 @@
+@import "./variavel";
+@import "./herança";
+@import "./mixins";
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    @include fundo_padding($blackPersonalizado,0);
+    @include estilizarTexto($branco,20px);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+// layout(s)
+
+.l{
+    
+    &-app{
+        @include altura_largura(100vh,100vw);
+        
+    }
+    &-sidebar{
+        @include fundo_padding(black,100px 25px 0);
+        @include altura_largura(100vh,250px);
+        @extend %top_E_left_0;
+        position: fixed;
+        min-width: 250px;
+        transform: translateX(-250px);
+        z-index: 1;
+
+        &::after{
+            color: $branco;
+            content: "fechar";
+            font-family: Arial Black, Arial, sans-serif;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+        }
+
+        &__btn{
+            @include estilizarTexto($branco,1.5rem);
+            background-color: transparent;
+            border: none;
+            position: fixed;
+            margin: 50px;
+            cursor: pointer;
+        }
+        &--open{
+            @include animacao(0);
+        }
+
+        &--close{
+            @include animacao(-250px)
+        }
+
+
+    }
+
+    &-logo{
+        @include estilizarTexto($branco,1.8rem);
+        margin-bottom: 75px;
+    }
+    &-page{
+        @extend %displayFlex_center;
+        min-height: 100vh;
+        padding: 50px;
+        width: 100%;
+    }
+    
+}
+//componete(s)
+
+.c-{
+    &sidebar{
+        @extend %displayFlex_colorBlack;
+        flex-direction: column;
+    }
+    &nav{
+        @extend %displayFlex_colorBlack;
+
+        &__item{
+            @include estilizarTexto($branco,24px);
+            text-decoration: none;
+        }
+    }
+    &btn{
+        
+        @include fundo_padding($cinza,5px 10px);
+        @include estilizarTexto($branco,24px);
+        border: none;
+        border-radius: 5px;
+        font-family: $font-btn;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    &form{
+        @extend %displayGrid;
+
+        &__group{
+            @extend %display_bordaR;
+        }
+        &__label{
+            @extend %display_bordaR;
+            font-size: .8rem;
+            margin-bottom: 5px;
+        }
+        &__control{
+            @extend %display_bordaR;
+            padding: 10px;
+            width: 100%;
+            max-width: 450px;
+            &::placeholder{
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        }
+    }
+
+    
+
+}
+
+//texto
+.title {
+    @include estilizarTexto($branco,2.5rem);
+}
+
+.description {
+    @include estilizarTexto($branco,1.75rem);
+}
+
+//Utilitarios
+
+.u-m{
+    &x-1{
+        @include margin_L_R(5px,5px);
+    }
+    &x-2{
+        @include margin_L_R(15px,15px);
+    }
+    &x-3{
+        @include margin_T_B(25px,25px);
+    }
+
+    &y-1{
+        @include margin_T_B(5px,5px);
+    }
+    &y-2{
+        @include margin_T_B(15px,15px);
+    }
+    &y-3{
+        @include margin_T_B(25px,25px);
+    }
+}
+
