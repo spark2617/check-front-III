@@ -151,15 +151,17 @@ a sidebar deverá ser apresentada.
                     if(!verificaEmail()&&!verificaNome()){
                       setEmail("email invalido!")
                       setTexto("nome invalido!")
-                    }else if(!verificaEmail()){
+                    }else if (verificaEmail()){
+                      setEmail("")
+                    }
+                    else if(verificaNome()){
+                      setTexto("")
+                    }
+                    else if(!verificaEmail()){
                       setEmail("email invalido!")
                     }else if(!verificaNome()){
                       setTexto("nome invalido!")
                     }
-                }else{
-                  alert("Ação bem sucedida!")
-                  setEmail("");
-                  setTexto("");
                 }
             }}
                 name="contact"
